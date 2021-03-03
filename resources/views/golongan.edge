@@ -1,0 +1,39 @@
+@layout('index')
+@section('content')
+<div class="row">
+  <div class="col-10">
+    <h1>Golongan Table</h1>
+  </div>
+  <div class="col-2">
+    <a href="golongan/create"><button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button></a>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="tg-0pky">id</th>
+      <th class="tg-0pky">nama_golongan</th>
+      <th class="tg-0pky">gaji_pokok</th>
+      <th class="tg-0lax">tj_kesehatan</th>
+      <th class="tg-0lax">tj_makan</th>
+      <th class="tg-0lax">tjn_keluarga</th>
+      <th class="tg-0lax">tj_bensin</th>
+      <th class="tg-0lax">tj_pendidikan</th>
+    </tr>
+  </thead>
+  <tbody>
+    @each(golongan in golongans)
+    <tr>
+      <td class="tg-0lax">{{golongan.id}}</td>
+      <td class="tg-0lax">{{golongan.nama_golongan}}</td>
+      <td class="tg-0lax">{{golongan.gaji_pokok}}</td>
+      <td class="tg-0lax">{{golongan.tj_kesehatan}}</td>
+      <td class="tg-0lax">{{golongan.tj_makan}}</td>
+      <td class="tg-0lax">{{golongan.tj_keluarga}}</td>
+      <td class="tg-0lax">{{golongan.tj_bensin}}</td>
+      <td class="tg-0lax">{{golongan.tj_pendidikan}}</td>
+    </tr>
+    @endeach
+  </tbody>
+</table>
+@endsection

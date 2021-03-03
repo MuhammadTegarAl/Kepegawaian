@@ -20,13 +20,15 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.on('/users').render('users')
-Route.on('/payroll').render('payroll')
-Route.on('/kantor_add').render('kantor_add')
-//Route.on('/divisi').render('divisi')
-//Route.get('/users', 'UserController.index')
-//Route.get('/payroll', 'UserController.show')
-// Route.get('/divisi', () => 'Hello Adonis')
-// Route.get('/kantor', () => 'Hello Adonis')
 
-Route.get('/divisi','PostController.index')
+
+Route.on('/kantor_add').render('add.kantor_add')
+Route.on('/divisi_add').render('add.divisi_add')
+Route.on('/golongan_add').render('add.golongan_add')
+Route.on('/user_add').render('add.user_add')
+
+
+Route.resource('/user','UserController')
+Route.resource('/divisi','DivisiController')
+Route.resource('/golongan','GolonganController')
 Route.resource('/kantor','KantorController')

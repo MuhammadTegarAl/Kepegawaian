@@ -1,58 +1,32 @@
 @layout('index')
 @section('content')
-    <h1>Divisi Tables</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th class="tg-0pky">id</th>
-            <th class="tg-0pky">nama_divisi</th>
-            <th class="tg-0pky">ketua_divisi</th>
-            <th class="tg-0lax">kontak_divisi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tg-0lax">1</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">2</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">3</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">4</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">5</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">6</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-          <tr>
-            <td class="tg-0lax">7</td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-            <td class="tg-0lax"></td>
-          </tr>
-        </tbody>
-        </table>
+<div class="row">
+  <div class="col-10">
+    <h1>Divisi Table</h1>
+  </div>
+  <div class="col-2">
+    <a href="divisi/create"><button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button></a>
+  </div>
+</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tg-0pky">id</th>
+        <th class="tg-0pky">nama_divisi</th>
+        <th class="tg-0pky">ketua_divisi</th>
+        <th class="tg-0lax">kontak_divisi</th>
+      </tr>
+    </thead>
+    <tbody>
+      @each(divisi in divisis)
+      <tr>
+        <td class="tg-0lax">{{divisi.id}}</td>
+        <td class="tg-0lax">{{divisi.nama_ivisi}}</td>
+        <td class="tg-0lax">{{divisi.nama_ketua}}</td>
+        <td class="tg-0lax">{{divisi.kontak_divisi}}</td>
+      </tr>
+      @endeach
+    </tbody>
+  </table>
 @endsection

@@ -1,18 +1,16 @@
 'use strict'
 
-const KantorController = require('./KantorController')
-
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const User =use('App/Models/User')
+const Golongan = use('App/Models/Golongan')
 /**
- * Resourceful controller for interacting with users
+ * Resourceful controller for interacting with golongans
  */
-class UserController {
+class GolonganController {
   /**
-   * Show a list of all users.
-   * GET users
+   * Show a list of all golongans.
+   * GET golongans
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -20,13 +18,14 @@ class UserController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const model = await User.all()
-    return view.render('user',{users:model.toJSON()})
+    const model = await Golongan.all()
+    return view.render('golongan',{golongans:model.toJSON()})
   }
 
+
   /**
-   * Render a form to be used for creating a new user.
-   * GET users/create
+   * Render a form to be used for creating a new golongan.
+   * GET golongans/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -34,12 +33,12 @@ class UserController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
-    return view.render('add.user_add')
+    return view.render('add.golongan_add')
   }
 
   /**
-   * Create/save a new user.
-   * POST users
+   * Create/save a new golongan.
+   * POST golongans
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -47,13 +46,13 @@ class UserController {
    */
   async store ({ request, response }) {
     console.log('request',request.all())
-    const user = await User.create(request.all())
-    return response.redirect('/user')
+    const golongan = await Golongan.create(request.all())
+    return response.redirect('/golongan')
   }
 
   /**
-   * Display a single user.
-   * GET users/:id
+   * Display a single golongan.
+   * GET golongans/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -61,12 +60,11 @@ class UserController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    return view.render('test')
   }
 
   /**
-   * Render a form to update an existing user.
-   * GET users/:id/edit
+   * Render a form to update an existing golongan.
+   * GET golongans/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -77,8 +75,8 @@ class UserController {
   }
 
   /**
-   * Update user details.
-   * PUT or PATCH users/:id
+   * Update golongan details.
+   * PUT or PATCH golongans/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -88,8 +86,8 @@ class UserController {
   }
 
   /**
-   * Delete a user with id.
-   * DELETE users/:id
+   * Delete a golongan with id.
+   * DELETE golongans/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -99,4 +97,4 @@ class UserController {
   }
 }
 
-module.exports = UserController
+module.exports = GolonganController

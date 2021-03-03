@@ -32,7 +32,7 @@ class KantorController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
-    return view.render('kantor_add')
+    return view.render('add.kantor_add')
   }
 
   /**

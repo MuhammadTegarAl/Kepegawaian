@@ -1,24 +1,24 @@
 @layout('index')
 @section('content')
 <body>
-    <form class="form-control" action="/kantor" method="POST">
+    <form action="/kantor" method="POST">
         <div class="form-group">
             <label for="">Nama Kantor</label>
-            <input type="text" name="nama_kantor">
+            <input class="form-control" type="text" name="nama_kantor">
         </div>
         <div class="form-group">
             <label for="">Nama Ketua</label>
-            <input type="text" name="nama_ketua">
+            <input class="form-control"  type="text" name="nama_ketua">
         </div>
         <div class="form-group">
             <label for="">Kontak Kantor</label>
-            <input type="text" name="kontak_kantor">
+            <input class="form-control"  type="text" name="kontak_kantor">
         </div>
         <div class="form-group">
             <label for="">Alamat Kantor</label>
-            <input type="text" name="alamat_kantor">
+            <input class="form-control"  type="text" name="alamat_kantor">
         </div>
-        <button class='btn btn-primary' id="btn_saveKantor">Save</button>
+        <button class='btn btn-primary' id="btn_saveKantor"><i class="far fa-save"></i> Submit</button>
     </form>
 </body>
 @endsection

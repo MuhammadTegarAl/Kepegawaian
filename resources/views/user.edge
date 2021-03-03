@@ -1,0 +1,37 @@
+@layout('index')
+@section('content')
+<div class="row">
+  <div class="col-10">
+    <h1>User Table</h1>
+  </div>
+  <div class="col-2">
+    <a href="user/create"><button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button></a>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col">NIK</th>
+      <th class="col">username</th>
+      <th class="col">email</th>
+      <th class="col">password</th>
+      <th class="col">kantor_id</th>
+      <th class="col">divisi_id</th>
+      <th class="col">golongan_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    @each(user in users)
+    <tr>
+      <td class="tg-0lax">{{user.id}}</td>
+      <td class="tg-0lax">{{user.username}}</td>
+      <td class="tg-0lax">{{user.email}}</td>
+      <td class="tg-0lax">{{user.password}}</td>
+      <td class="tg-0lax">{{user.kantor_id}}</td>
+      <td class="tg-0lax">{{user.divisi_id}}</td>
+      <td class="tg-0lax">{{user.golongan_id}}</td>
+    </tr>
+    @endeach
+  </tbody>
+</table>
+@endsection

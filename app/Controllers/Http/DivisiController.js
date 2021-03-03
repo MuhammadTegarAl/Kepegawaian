@@ -1,18 +1,16 @@
 'use strict'
 
-const KantorController = require('./KantorController')
-
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const User =use('App/Models/User')
+const Divisi = use('App/Models/Divisi')
 /**
- * Resourceful controller for interacting with users
+ * Resourceful controller for interacting with divisis
  */
-class UserController {
+class DivisiController {
   /**
-   * Show a list of all users.
-   * GET users
+   * Show a list of all divisis.
+   * GET divisis
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -20,13 +18,13 @@ class UserController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const model = await User.all()
-    return view.render('user',{users:model.toJSON()})
+    const model = await Divisi.all()
+    return view.render('divisi',{divisis:model.toJSON()})
   }
 
   /**
-   * Render a form to be used for creating a new user.
-   * GET users/create
+   * Render a form to be used for creating a new divisi.
+   * GET divisis/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -34,12 +32,12 @@ class UserController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
-    return view.render('add.user_add')
+    return view.render('add.divisi_add')
   }
 
   /**
-   * Create/save a new user.
-   * POST users
+   * Create/save a new divisi.
+   * POST divisis
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -47,13 +45,13 @@ class UserController {
    */
   async store ({ request, response }) {
     console.log('request',request.all())
-    const user = await User.create(request.all())
-    return response.redirect('/user')
+    const divisi = await Divisi.create(request.all())
+    return response.redirect('/divisi')
   }
 
   /**
-   * Display a single user.
-   * GET users/:id
+   * Display a single divisi.
+   * GET divisis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -61,12 +59,11 @@ class UserController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    return view.render('test')
   }
 
   /**
-   * Render a form to update an existing user.
-   * GET users/:id/edit
+   * Render a form to update an existing divisi.
+   * GET divisis/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -77,8 +74,8 @@ class UserController {
   }
 
   /**
-   * Update user details.
-   * PUT or PATCH users/:id
+   * Update divisi details.
+   * PUT or PATCH divisis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -88,8 +85,8 @@ class UserController {
   }
 
   /**
-   * Delete a user with id.
-   * DELETE users/:id
+   * Delete a divisi with id.
+   * DELETE divisis/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -99,4 +96,4 @@ class UserController {
   }
 }
 
-module.exports = UserController
+module.exports = DivisiController
