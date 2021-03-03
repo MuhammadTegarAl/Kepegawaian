@@ -1,0 +1,29 @@
+@layout('index')
+@section('content')
+    <h1>Kantor Tables</h1>
+    <a href="/kantor/create">Add</a>
+    <table class="table">
+        <thead>
+          <tr>
+            <th class="tg-0pky">id</th>
+            <th class="tg-0pky">nama_kantor</th>
+            <th class="tg-0pky">alamat_kantor</th>
+            <th class="tg-0lax">ketua_kantor</th>
+            <th class="tg-0lax">kontak_kantor</th>
+          </tr>
+        </thead>
+        <tbody>
+          @each(kantor in kantors)
+          <tr>
+            <td class="tg-0lax">{{kantor.id}}</td>
+            <td class="tg-0lax">{{kantor.nama_kantor}}</td>
+            <td class="tg-0lax">{{kantor.alamat_kantor}}</td>
+            <td class="tg-0lax">{{kantor.nama_ketua}}</td>
+            <td class="tg-0lax">{{kantor.kontak_kantor}}</td>
+          </tr>
+          @endeach
+          
+        </tbody>
+        </table>
+</body>
+@endsection
