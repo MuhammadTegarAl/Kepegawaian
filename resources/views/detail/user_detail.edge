@@ -1,0 +1,16 @@
+@layout('index')
+@section('content')
+    <div class="row">
+        <div class="col-4">
+            <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="profil picture" class="img-thumbnail">
+        </div>
+        <div class="col-8">
+            @each(user in users)
+            <ul>
+              <li><b>{{user.username}}</b></li>
+              <li>{{user.email}}</li>
+            </ul>
+            @endeach
+        </div>
+    </div>
+@endsection

@@ -1,21 +1,29 @@
 @layout('index')
 @section('content')
-<body>
-    <form action="/divisi" method="POST">
-        <div class="form-group">
-            <label for="">Nama Divisi</label>
-            <input class="form-control" type="text" name="nama_divisi">
+<div class="row">
+    <div class="col-6">
+        <img src="https://images.unsplash.com/photo-1527135472885-9908bbe7d61f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1164&q=80" class="img-fluid" alt="">
+    </div>
+    <div class="col-6">
+        <div class="card-body shadow p-3 mb-5 bg-white rounded">
+            <h2>Input Data Divisi</h2>
+            <form action="/divisi" method="POST">
+                <div class="form-group p-2">
+                    <input placeholder="Nama Divisi" class="form-control" type="text" name="nama_divisi">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Nama Ketua"  class="form-control"  type="text" name="nama_ketua">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Kontak Divisi"  class="form-control"  type="text" name="kontak_divisi">
+                </div>
+                <div class="row p-4">
+                    <button class='btn btn-dark'><i class="far fa-save"></i> Submit</button>
+                </div>        
+            </form>
         </div>
-        <div class="form-group">
-            <label for="">Nama Ketua</label>
-            <input class="form-control"  type="text" name="nama_ketua">
-        </div>
-        <div class="form-group">
-            <label for="">Kontak Divisi</label>
-            <input class="form-control"  type="text" name="kontak_divisi">
-        </div>
-        <button class='btn btn-primary' id="btn_saveDivisi"><i class="far fa-save"></i> Submit</button>
-    </form>
-</body>
+    </div>
+</div>
+
 @endsection
 

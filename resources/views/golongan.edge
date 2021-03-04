@@ -2,23 +2,23 @@
 @section('content')
 <div class="row">
   <div class="col-10">
-    <h1>Golongan Table</h1>
+    <h1>Tabel Golongan</h1>
   </div>
   <div class="col-2">
-    <a href="golongan/create"><button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button></a>
+    <a href="golongan/create"><button class="btn btn-dark"><i class="fas fa-plus"></i> Add</button></a>
   </div>
 </div>
 <table class="table">
   <thead>
     <tr>
-      <th class="tg-0pky">id</th>
-      <th class="tg-0pky">nama_golongan</th>
-      <th class="tg-0pky">gaji_pokok</th>
-      <th class="tg-0lax">tj_kesehatan</th>
-      <th class="tg-0lax">tj_makan</th>
-      <th class="tg-0lax">tjn_keluarga</th>
-      <th class="tg-0lax">tj_bensin</th>
-      <th class="tg-0lax">tj_pendidikan</th>
+      <th class="tg-0pky">ID</th>
+      <th class="tg-0pky">Nama Golongan</th>
+      <th class="tg-0pky">Gaji Pokok</th>
+      <th class="tg-0lax">Tj Kesehatan</th>
+      <th class="tg-0lax">Tj Makan</th>
+      <th class="tg-0lax">Tj Keluarga</th>
+      <th class="tg-0lax">Tj Bensin</th>
+      <th class="tg-0lax">Tj Pendidikan</th>
     </tr>
   </thead>
   <tbody>
@@ -32,6 +32,11 @@
       <td class="tg-0lax">{{golongan.tj_keluarga}}</td>
       <td class="tg-0lax">{{golongan.tj_bensin}}</td>
       <td class="tg-0lax">{{golongan.tj_pendidikan}}</td>
+      <td class="tg-0lax">
+        <a href="/golongan/{{golongan.id}}" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+        <a href="/golongan/{{golongan.id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+        <a href="/golongan/{{golongan.id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+      </td>
     </tr>
     @endeach
   </tbody>

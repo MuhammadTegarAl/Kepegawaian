@@ -2,29 +2,34 @@
 @section('content')
 <div class="row">
   <div class="col-10">
-    <h1>Divisi Table</h1>
+    <h1>Tabel Divisi</h1>
   </div>
   <div class="col-2">
-    <a href="divisi/create"><button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button></a>
+    <a href="divisi/create"><button class="btn btn-dark"><i class="fas fa-plus"></i> Add</button></a>
   </div>
 </div>
 
   <table class="table">
     <thead>
       <tr>
-        <th class="tg-0pky">id</th>
-        <th class="tg-0pky">nama_divisi</th>
-        <th class="tg-0pky">ketua_divisi</th>
-        <th class="tg-0lax">kontak_divisi</th>
+        <th class="tg-0pky">ID</th>
+        <th class="tg-0pky">Nama Divisi</th>
+        <th class="tg-0pky">Kepala Divisi</th>
+        <th class="tg-0lax">Kontak Divisi</th>
       </tr>
     </thead>
     <tbody>
       @each(divisi in divisis)
       <tr>
         <td class="tg-0lax">{{divisi.id}}</td>
-        <td class="tg-0lax">{{divisi.nama_ivisi}}</td>
+        <td class="tg-0lax">{{divisi.nama_divisi}}</td>
         <td class="tg-0lax">{{divisi.nama_ketua}}</td>
         <td class="tg-0lax">{{divisi.kontak_divisi}}</td>
+        <td class="tg-0lax">
+          <a href="/divisi/{{divisi.id}}" class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+          <a href="/divisi/{{divisi.id}}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+          <a href="/divisi/{{divisi.id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        </td>
       </tr>
       @endeach
     </tbody>

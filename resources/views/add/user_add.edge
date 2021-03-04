@@ -1,32 +1,58 @@
 @layout('index')
 @section('content')
-<body>
-    <form action="/user" method="POST">
-        <div class="form-group">
-            <label for="">Username</label>
-            <input class="form-control" type="text" name="username">
+@if(old('error'))
+{{old('error')}}
+@endif
+<div class="row">
+    <div class="col-6">
+        <img class="img-fluid" src="https://images.unsplash.com/photo-1543196614-e046c7d3d82e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1198&q=80" alt="">
+    </div>
+    <div class="col-6">
+        <div class="card-body shadow p-3 mb-5 bg-white rounded">
+            <h2>Input Data User</h2>
+            <form action="/user" method="POST">
+                <div class="form-group p-2">
+                    <input placeholder="Username" class="form-control" type="text" name="username" required>
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Email"  class="form-control"  type="email" name="email" required>
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Password"  class="form-control"  type="password" name="password" required>
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Konfirmasi Password"  class="form-control"  type="password" name="password_confirmation" required>
+                </div>
+                <div class="form-group p-2">
+                    <label for="">Kantor</label>
+                    <select class="form-control" name="kantor_id">
+                        @each(kantor in kantors)
+                        <option placeholder=""  value="{{kantor.id}}">{{kantor.nama_kantor }} - {{ kantor.alamat_kantor}}</option>
+                        @endeach
+                    </select>
+                    </div>
+                
+                <div class="form-group p-2">
+                    <label for="">Divisi</label>
+                    <select class="form-control" name="divisi_id">
+                        @each(divisi in divisis)
+                        <option placeholder=""  value="{{divisi.id}}">{{divisi.nama_divisi }}</option>
+                        @endeach
+                    </select>
+                </div>
+                <div class="form-group p-2">
+                    <label for="">Golongan</label>
+                    <select placeholder=""  class="form-control" name="golongan_id">
+                        @each(golongan in golongans)
+                        <option value="{{golongan.id}}">{{golongan.nama_golongan}}</option>
+                        @endeach
+                    </select>
+                </div>
+                <div class="row p-4">
+                    <button class='btn btn-dark'><i class="far fa-save"></i> Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="">Email</label>
-            <input class="form-control"  type="text" name="email">
-        </div>
-        <div class="form-group">
-            <label for="">Password</label>
-            <input class="form-control"  type="password" name="password">
-        </div>
-        <div class="form-group">
-            <label for="">id Kantor</label>
-            <input class="form-control"  type="text" name="kantor_id">
-        </div>
-        <div class="form-group">
-            <label for="">id Divisi</label>
-            <input class="form-control"  type="text" name="divisi_id">
-        </div>
-        <div class="form-group">
-            <label for="">id Golongan</label>
-            <input class="form-control"  type="text" name="golongan_id">
-        </div>
-        <button class='btn btn-primary' id="btn_saveUser"><i class="far fa-save"></i> Submit</button>
-    </form>
-</body>
+    </div>
+</div>
 @endsection

@@ -1,37 +1,41 @@
 @layout('index')
 @section('content')
-<body>
-    <form action="/golongan" method="POST">
-        <div class="form-group">
-            <label for="">Nama Golongan</label>
-            <input class="form-control" type="text" name="nama_golongan">
+<div class="row">
+    <div class="col-6">
+        <img class="img-fluid" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80" alt="">
+    </div>
+    <div class="col-6">
+        <div class="card-body shadow p-3 mb-5 bg-white rounded">
+            <h2>Input Data Golongan</h2>
+            <form action="/golongan" method="POST">
+                <div class="form-group p-2">
+                    <input placeholder="Nama Golongan" class="form-control" type="text" name="nama_golongan">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Gaji Pokok"  class="form-control"  type="text" name="gaji_pokok">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Tunjangan Kesehatan"  class="form-control"  type="text" name="tj_kesehatan">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Tunjangan Makan"  class="form-control"  type="text" name="tj_makan">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Tunjangan Keluarga"  class="form-control"  type="text" name="tj_keluarga">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Tunjangan Bensin"  class="form-control"  type="text" name="tj_bensin">
+                </div>
+                <div class="form-group p-2">
+                    <input placeholder="Tunjangan Pendidikan"  class="form-control"  type="text" name="tj_pendidikan">
+                </div>
+                <div class="row p-4">
+                    <button class='btn btn-dark'><i class="far fa-save"></i> Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="">Gaji Pokok</label>
-            <input class="form-control"  type="text" name="gaji_pokok">
-        </div>
-        <div class="form-group">
-            <label for="">Tunjangan Kesehatan</label>
-            <input class="form-control"  type="text" name="tj_kesehatan">
-        </div>
-        <div class="form-group">
-            <label for="">Tunjangan Makan</label>
-            <input class="form-control"  type="text" name="tj_makan">
-        </div>
-        <div class="form-group">
-            <label for="">Tunjangan Keluarga</label>
-            <input class="form-control"  type="text" name="tj_keluarga">
-        </div>
-        <div class="form-group">
-            <label for="">Tunjangan Bensin</label>
-            <input class="form-control"  type="text" name="tj_bensin">
-        </div>
-        <div class="form-group">
-            <label for="">Tunjangan Pendidikan</label>
-            <input class="form-control"  type="text" name="tj_pendidikan">
-        </div>
-        <button class='btn btn-primary' id="btn_saveGOlongan"><i class="far fa-save"></i> Submit</button>
-    </form>
-</body>
+    </div>
+</div>
+
 @endsection
 

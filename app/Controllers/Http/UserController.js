@@ -6,6 +6,10 @@ const KantorController = require('./KantorController')
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const User =use('App/Models/User')
+const Kantor = use('App/Models/Kantor')
+const Divisi = use('App/Models/Divisi')
+const Golongan = use('App/Models/Golongan')
+// const { validate } = use('Validator')
 /**
  * Resourceful controller for interacting with users
  */
@@ -20,7 +24,11 @@ class UserController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const model = await User.all()
+    const model = await User.query()
+      .with('divisi')
+      .with('kantor')
+      .with('golongan')
+      .fetch()
     return view.render('user',{users:model.toJSON()})
   }
 
@@ -34,7 +42,14 @@ class UserController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
-    return view.render('add.user_add')
+    const model = await Kantor.all()
+    const model2 = await Divisi.all()
+    const model3 = await Golongan.all()
+    return view.render('add.user_add',{
+      kantors:model.toJSON(),
+      divisis:model2.toJSON(),
+      golongans:model3.toJSON()
+    })
   }
 
   /**
@@ -45,11 +60,33 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
-    console.log('request',request.all())
-    const user = await User.create(request.all())
+  async store ({ request, response, session }) {
+    // const rules = {
+    //   username: 'required',
+    //   email: 'required|email|unique:users,email',
+    //   password: 'required|confirmed'
+    // }
+
+    // const validation = await validate(request.all(), rules)
+    // console.log(validation)
+    // if (validation.fails()) {
+    //   session
+    //     .withErrors({error:validation.messages()})
+    //     .flashExcept(['password'])
+
+    //   return response.redirect('back')
+    // }
+    const user = new User()
+    user.username = request.input('username')
+    user.password = request.input('password')
+    user.email = request.input('email')
+    user.divisi_id = request.input('divisi_id')
+    user.golongan_id = request.input('golongan_id')
+    user.kantor_id = request.input('kantor_id')
+    await user.save()
     return response.redirect('/user')
   }
+  
 
   /**
    * Display a single user.
@@ -61,8 +98,11 @@ class UserController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    return view.render('test')
-  }
+    const model = await User.find(params.id)
+    return view.render('detail.user_detail', {
+      users:model
+    })
+  } 
 
   /**
    * Render a form to update an existing user.
