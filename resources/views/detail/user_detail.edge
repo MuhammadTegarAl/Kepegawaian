@@ -1,16 +1,24 @@
 @layout('index')
 @section('content')
     <div class="row">
-        <div class="col-4">
-            <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="profil picture" class="img-thumbnail">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card-body shadow p-3 mb-5 bg-white rounded">
+                @each(user in users)
+                <h4>{{user.username}}</h4>
+                <ul>
+                    <li>User ID = {{user.id}}</li>
+                    <li>Username = <b>{{user.username}}</b></li>
+                    <li>Email = {{user.email}}</li>
+                    <li>Password ={{user.password}}</li>
+                    <li>Kantor = {{user.kantor.nama_kantor}}</li>
+                    <li>Divisi = {{user.divisi.nama_divisi}}</li>
+                    <li>Golongan = {{user.golongan.nama_golongan}}</li>
+                    <li>Gaji Pokok = {{user.golongan.gaji_pokok}}</li>
+                </ul>
+                @endeach
+            </div>
         </div>
-        <div class="col-8">
-            @each(user in users)
-            <ul>
-              <li><b>{{user.username}}</b></li>
-              <li>{{user.email}}</li>
-            </ul>
-            @endeach
-        </div>
+        <div class="col-3"></div>
     </div>
 @endsection

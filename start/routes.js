@@ -25,8 +25,9 @@ Route.on('/kantor_add').render('add.kantor_add')
 Route.on('/divisi_add').render('add.divisi_add')
 Route.on('/golongan_add').render('add.golongan_add')
 Route.on('/user_add').render('add.user_add')
+Route.on('/testing').render('add.testing')
+Route.on('/home').render('welcome')
 
-//Route.get('user/:id','UserController.show')
 
 
 Route.resource('/user','UserController')

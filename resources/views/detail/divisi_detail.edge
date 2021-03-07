@@ -1,0 +1,20 @@
+@layout('index')
+@section('content')
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card-body shadow p-3 mb-5 bg-white rounded">
+                @each(divisi in divisis)
+                <h4>{{divisi.nama_divisi}}</h4>
+                <ul>
+                    <li>{{divisi.id}}</li>
+                    <li>{{divisi.nama_divisi}}</li>
+                    <li>{{divisi.nama_ketua}}</li>
+                    <li>{{divisi.kontak_divisi}}</li>
+                </ul>
+                @endeach
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+@endsection

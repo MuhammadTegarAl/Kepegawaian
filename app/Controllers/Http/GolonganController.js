@@ -60,6 +60,10 @@ class GolonganController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
+    const model = await Golongan.find(params.id)
+    return view.render('detail.golongan_detail', {
+      golongans:model,
+    })
   }
 
   /**

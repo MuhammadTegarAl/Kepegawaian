@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
-  {{ style('style') }}
-</head>
-<body>
-  <section>
-    <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle">
-      <p>Hello World!!!!</p>
-      <p>
-        Don't know where to start? Read the <a href="https://adonisjs.com/docs">documentation</a>.
-      </p>
-    </div>
-  </section>
-</body>
-</html>
+@layout('index')
+@section('content')
+  <header>
+      <div class="jumbotron">
+          <div class="row">
+              <div class="col-6">
+                  <img src="headerimg.svg" alt="">
+              </div>
+              <div class="col-6">
+                  <h1>Database Kepegawaian</h1>
+              </div>
+          </div>
+      </div>
+  </header>
+@endsection

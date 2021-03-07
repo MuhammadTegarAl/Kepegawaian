@@ -99,8 +99,15 @@ class UserController {
    */
   async show ({ params, request, response, view }) {
     const model = await User.find(params.id)
+    // const model2 = await Kantor.find(params.id)
+    // const model3 = await Divisi.find(params.id)
+    // const model4 = await Golongan.find(params.id)
+    console.log(model)
     return view.render('detail.user_detail', {
-      users:model
+      users:model,
+      // kantors:model2,
+      // divisis:model3,
+      // golongans:model4,
     })
   } 
 

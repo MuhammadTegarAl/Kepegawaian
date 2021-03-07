@@ -59,6 +59,10 @@ class KantorController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
+    const model = await Kantor.find(params.id)
+    return view.render('detail.kantor_detail', {
+      kantors:model,
+    })
   }
 
   /**
@@ -71,6 +75,7 @@ class KantorController {
    * @param {View} ctx.view
    */
   async edit ({ params, request, response, view }) {
+    
   }
 
   /**
